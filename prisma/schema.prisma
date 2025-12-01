@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+model Payee {
+  id            String   @id @default(uuid())
+  name          String
+  accountNumber String
+  bankName      String
+  ifsc          String?
+  swift         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
